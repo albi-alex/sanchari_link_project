@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sanchari-Link</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Sanchari-Link</h1>
+    <p>Connecting global Malayalis with trusted local professionals in Kerala.</p>
+</header>
+
+<div class="hero-image"></div>
+
+<div class="content" id="home">
+    <h2>Because Distance Should Never Break The Love And Care We Carry!</h2>
+    <div class="roles">
+        <button onclick="showRequester()">I am a Requester</button>
+        <button onclick="showProvider()">I am a Provider</button>
+    </div>
+</div>
+
+<div class="login-section" id="requester">
+    <div class="login-box">
+        <h3>Requester Login</h3>
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <button onclick="loginRequester()">Login</button>
+        <span class="back-btn" onclick="goHome()">← Back</span>
+    </div>
+</div>
+
+<div class="login-section" id="provider">
+    <div class="login-box">
+        <h3>Provider Login</h3>
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <button onclick="loginProvider()">Login</button>
+        <span class="back-btn" onclick="goHome()">← Back</span>
+    </div>
+</div>
+
+<div id="create-task" style="display:none; text-align:center; padding:40px;">
+    <h2>Create a Task</h2>
+
+    <textarea id="task-desc" rows="4" cols="50" placeholder="Type task here..."></textarea>
+
+    <p>Select Location:</p>
+    <select id="task-location">
+        <option value="">--Select District--</option>
+        <option>Thiruvananthapuram</option>
+        <option>Kollam</option>
+        <option>Pathanamthitta</option>
+        <option>Alappuzha</option>
+        <option>Kottayam</option>
+        <option>Idukki</option>
+        <option>Ernakulam</option>
+        <option>Thrissur</option>
+        <option>Palakkad</option>
+        <option>Malappuram</option>
+        <option>Kozhikode</option>
+        <option>Wayanad</option>
+        <option>Kannur</option>
+        <option>Kasaragod</option>
+    </select>
+
+    <br><br>
+    <button onclick="createTask()">Submit Task</button>
+
+    <div id="task-result" style="margin-top:20px;"></div>
+
+    <span class="back-btn" onclick="goHome()">← Back</span>
+</div>
+
+<div id="provider-tasks" style="display:none; padding:40px; text-align:center;">
+    <h2>Submitted Tasks</h2>
+    <p id="loading-tasks">Loading tasks...</p>
+    <div id="tasks-list" style="margin-top:20px; text-align:left;"></div>
+    <button onclick="goHome()">Back</button>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

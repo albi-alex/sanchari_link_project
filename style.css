@@ -1,0 +1,67 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Segoe UI',sans-serif;
+background:linear-gradient(135deg,#f0f4f8,#ffffff);
+color:#333;
+}
+
+header{
+text-align:center;
+padding:30px 20px;
+background:linear-gradient(90deg,#1a3c6e,#244a86);
+color:white;
+}
+
+.hero-image{
+width:100%;
+height:420px;
+background-color:#f8fafc;
+margin-bottom:40px;
+}
+
+.content{
+text-align:center;
+padding:20px 30px 50px 30px;
+}
+
+.roles button{
+padding:14px 26px;
+margin:10px;
+background:#1a3c6e;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+}
+
+.login-section{
+display:none;
+padding:60px 20px;
+text-align:center;
+}
+
+.login-box{
+background:white;
+padding:35px;
+border-radius:12px;
+width:320px;
+margin:auto;
+}
+
+.login-box input{
+width:100%;
+padding:12px;
+margin:12px 0;
+}
+
+.back-btn{
+margin-top:18px;
+display:inline-block;
+color:#1a3c6e;
+cursor:pointer;
+}
