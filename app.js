@@ -1,4 +1,5 @@
 let submittedTasks = [];
+let trustPoints = 0; // ⭐ NEW FEATURE (TrustPoints)
 
 // NAVIGATION
 function showRequester(){
@@ -80,7 +81,7 @@ timestamp:Date.now()
 
 submittedTasks.push(newTask);
 
-// ⭐ TASK PROCESSED RESULT BOX (RESTORED)
+// ⭐ TASK PROCESSED RESULT BOX (EXISTING FEATURE RESTORED)
 document.getElementById("task-result").innerHTML = `
 <h3>Task Processed</h3>
 <p><strong>Category:</strong> ${result.category}</p>
@@ -99,9 +100,14 @@ submittedTasks[index].accepted=true;
 showProviderTasks();
 }
 
-// COMPLETE TASK
+// COMPLETE TASK + TRUSTPOINTS ⭐
 function completeTask(index){
+
 submittedTasks[index].completed=true;
+
+// ⭐ ADD TRUSTPOINTS WITHOUT CHANGING OLD LOGIC
+trustPoints += 10;
+
 showProviderTasks();
 }
 
@@ -129,6 +135,10 @@ document.getElementById("requester").style.display="none";
 document.getElementById("provider").style.display="none";
 document.getElementById("create-task").style.display="none";
 document.getElementById("provider-tasks").style.display="block";
+
+// ⭐ SHOW TRUSTPOINTS IN TITLE
+const heading=document.querySelector("#provider-tasks h2");
+heading.innerHTML=`Submitted Tasks ⭐ TrustPoints: ${trustPoints}`;
 
 const tasksList=document.getElementById("tasks-list");
 const loadingText=document.getElementById("loading-tasks");
@@ -165,13 +175,10 @@ else if(t.accepted){
 
 statusHTML=`<p style="color:blue;"><strong>Status:</strong> Accepted</p>`;
 
-// Show preview if proof already selected
-let proofPreview = "";
+let proofPreview="";
 if(t.proof){
-    proofPreview = `
-    <p style="color:green;">Proof Selected ✔</p>
-    <img src="${t.proof}" style="width:120px;border-radius:8px;margin-top:5px;">
-    `;
+proofPreview=`<p style="color:green;">Proof Selected ✔</p>
+<img src="${t.proof}" style="width:120px;border-radius:8px;margin-top:5px;">`;
 }
 
 buttonHTML=`
