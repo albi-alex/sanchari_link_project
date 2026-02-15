@@ -1,88 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sanchari-Link</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanchari-Link</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header>
-    <h1>Sanchari-Link</h1>
-    <p>Connecting global Malayalis with trusted local professionals in Kerala.</p>
-</header>
+    <!-- HEADER -->
+    <header style="text-align:center; margin-bottom:20px;">
+        <h1>Sanchari-Link</h1>
+        <p>Connecting global Malayalis with trusted local professionals in Kerala.</p>
+    </header>
 
-<div class="hero-image"></div>
-
-<div class="content" id="home">
-    <h2>Because Distance Should Never Break The Love And Care We Carry!</h2>
-    <div class="roles">
-        <button onclick="showRequester()">I am a Requester</button>
-        <button onclick="showProvider()">I am a Provider</button>
+    <!-- HERO IMAGE -->
+    <div class="hero-image" style="text-align:center; margin-bottom:20px;">
+        <img src="family.jpg" alt="Family Image" style="max-width:90%; border-radius:10px;">
     </div>
-</div>
 
-<div class="login-section" id="requester">
-    <div class="login-box">
-        <h3>Requester Login</h3>
-        <input type="email" placeholder="Email">
-        <input type="password" placeholder="Password">
-        <button onclick="loginRequester()">Login</button>
+    <!-- MAIN CONTENT -->
+    <div class="content" id="home">
+        <h2>"...because distance should never break the love and concern we carry."</h2>
+        <p>Take care of your parents, manage your home, and stay connected — even from miles away.</p>
+
+        <div class="roles">
+            <button onclick="showRequester()">I am a Requester</button>
+            <button onclick="showProvider()">I am a Provider</button>
+        </div>
+    </div>
+
+    <!-- REQUESTER LOGIN -->
+    <div class="login-section" id="requester" style="display:none; text-align:center;">
+        <div class="login-box">
+            <h3>Requester Login</h3>
+            <input type="email" placeholder="Email" id="requester-email">
+            <input type="password" placeholder="Password" id="requester-password">
+            <input type="text" placeholder="WhatsApp Number" id="requester-whatsapp">
+            <input type="text" placeholder="Detailed Address" id="requester-address">
+            <button onclick="loginRequester()">Login</button>
+            <span class="back-btn" onclick="goHome()">← Back</span>
+        </div>
+    </div>
+
+    <!-- CREATE TASK SECTION -->
+    <div class="create-task-section" id="create-task" style="display:none; text-align:center; padding:40px;">
+        <h2>Create a Task</h2>
+        <p>Describe the task you want someone to do:</p>
+        <textarea id="task-desc" rows="4" cols="50" placeholder="Type task here..."></textarea>
+
+        <p>Select District:</p>
+        <select id="task-location">
+            <option value="">--Select District--</option>
+            <option value="Thiruvananthapuram">Thiruvananthapuram</option>
+            <option value="Kollam">Kollam</option>
+            <option value="Pathanamthitta">Pathanamthitta</option>
+            <option value="Alappuzha">Alappuzha</option>
+            <option value="Kottayam">Kottayam</option>
+            <option value="Idukki">Idukki</option>
+            <option value="Ernakulam">Ernakulam</option>
+            <option value="Thrissur">Thrissur</option>
+            <option value="Palakkad">Palakkad</option>
+            <option value="Malappuram">Malappuram</option>
+            <option value="Kozhikode">Kozhikode</option>
+            <option value="Wayanad">Wayanad</option>
+            <option value="Kannur">Kannur</option>
+            <option value="Kasaragod">Kasaragod</option>
+        </select>
+
+        <br><br>
+        <button onclick="createTask()">Submit Task</button>
+
+        <div id="task-result" style="margin-top:20px;"></div>
+
         <span class="back-btn" onclick="goHome()">← Back</span>
     </div>
-</div>
 
-<div class="login-section" id="provider">
-    <div class="login-box">
-        <h3>Provider Login</h3>
-        <input type="email" placeholder="Email">
-        <input type="password" placeholder="Password">
-        <button onclick="loginProvider()">Login</button>
-        <span class="back-btn" onclick="goHome()">← Back</span>
+    <!-- PROVIDER LOGIN -->
+    <div class="login-section" id="provider" style="display:none; text-align:center;">
+        <div class="login-box">
+            <h3>Provider Login</h3>
+            <input type="email" placeholder="Email" id="provider-email">
+            <input type="password" placeholder="Password" id="provider-password">
+            <input type="text" placeholder="WhatsApp Number" id="provider-whatsapp">
+            <button onclick="loginProvider()">Login</button>
+            <span class="back-btn" onclick="goHome()">← Back</span>
+        </div>
     </div>
-</div>
 
-<div id="create-task" style="display:none; text-align:center; padding:40px;">
-    <h2>Create a Task</h2>
+    <!-- PROVIDER TASKS SECTION -->
+    <div class="provider-tasks-section" id="provider-tasks" style="display:none; padding:40px; text-align:center;">
+        <h2>Provider Dashboard</h2>
+        <p id="provider-info"></p>
+        <h3>Submitted Tasks</h3>
+        <div id="tasks-list" style="margin-top:20px; text-align:left;"></div>
+        <button onclick="goHome()" style="margin-top:20px; padding:10px 20px;">Back</button>
+    </div>
 
-    <textarea id="task-desc" rows="4" cols="50" placeholder="Type task here..."></textarea>
-
-    <p>Select Location:</p>
-    <select id="task-location">
-        <option value="">--Select District--</option>
-        <option>Thiruvananthapuram</option>
-        <option>Kollam</option>
-        <option>Pathanamthitta</option>
-        <option>Alappuzha</option>
-        <option>Kottayam</option>
-        <option>Idukki</option>
-        <option>Ernakulam</option>
-        <option>Thrissur</option>
-        <option>Palakkad</option>
-        <option>Malappuram</option>
-        <option>Kozhikode</option>
-        <option>Wayanad</option>
-        <option>Kannur</option>
-        <option>Kasaragod</option>
-    </select>
-
-    <br><br>
-    <button onclick="createTask()">Submit Task</button>
-
-    <div id="task-result" style="margin-top:20px;"></div>
-
-    <span class="back-btn" onclick="goHome()">← Back</span>
-</div>
-
-<div id="provider-tasks" style="display:none; padding:40px; text-align:center;">
-    <h2>Submitted Tasks</h2>
-    <p id="loading-tasks">Loading tasks...</p>
-    <div id="tasks-list" style="margin-top:20px; text-align:left;"></div>
-    <button onclick="goHome()">Back</button>
-</div>
-
-<script src="app.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>

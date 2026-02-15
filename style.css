@@ -1,67 +1,157 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-font-family:'Segoe UI',sans-serif;
-background:linear-gradient(135deg,#f0f4f8,#ffffff);
-color:#333;
+/* BODY */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #f0f4f8, #ffffff);
+    color: #333;
 }
 
-header{
-text-align:center;
-padding:30px 20px;
-background:linear-gradient(90deg,#1a3c6e,#244a86);
-color:white;
+/* HEADER */
+header {
+    text-align: center;
+    padding: 30px 20px;
+    background: linear-gradient(90deg, #1a3c6e, #244a86);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
 }
 
-.hero-image{
-width:100%;
-height:420px;
-background-color:#f8fafc;
-margin-bottom:40px;
+header h1 {
+    font-size: 36px;
 }
 
-.content{
-text-align:center;
-padding:20px 30px 50px 30px;
+header p {
+    margin-top: 8px;
+    font-size: 16px;
+    opacity: 0.9;
 }
 
-.roles button{
-padding:14px 26px;
-margin:10px;
-background:#1a3c6e;
-color:white;
-border:none;
-border-radius:8px;
-cursor:pointer;
+/* HERO IMAGE */
+.hero-image {
+    width: 100%;
+    height: 420px;
+    background-image: url("family.jpg"); /* Your family image here */
+    background-size: contain; /* Ensures the full image fits */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #f8fafc; /* Soft background if image is smaller */
+    border-radius: 10px;
+    margin-bottom: 40px;
 }
 
-.login-section{
-display:none;
-padding:60px 20px;
-text-align:center;
+/* MAIN CONTENT */
+.content {
+    text-align: center;
+    padding: 20px 30px 50px 30px;
 }
 
-.login-box{
-background:white;
-padding:35px;
-border-radius:12px;
-width:320px;
-margin:auto;
+.content h2 {
+    font-size: 26px;
+    margin-bottom: 15px;
+    color: #1a3c6e;
 }
 
-.login-box input{
-width:100%;
-padding:12px;
-margin:12px 0;
+.content p {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 30px;
 }
 
-.back-btn{
-margin-top:18px;
-display:inline-block;
-color:#1a3c6e;
-cursor:pointer;
+/* ROLE BUTTONS */
+.roles button {
+    padding: 14px 26px;
+    margin: 10px;
+    font-size: 16px;
+    background: linear-gradient(90deg, #1a3c6e, #244a86);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.roles button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* LOGIN SECTION */
+.login-section {
+    display: none;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.login-box {
+    background: white;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    width: 320px;
+    margin: auto;
+}
+
+.login-box h3 {
+    margin-bottom: 20px;
+    color: #1a3c6e;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.login-box input:focus {
+    border-color: #1a3c6e;
+    outline: none;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    background: linear-gradient(90deg, #1a3c6e, #244a86);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-box button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* BACK BUTTON */
+.back-btn {
+    margin-top: 18px;
+    display: inline-block;
+    color: #1a3c6e;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.back-btn:hover {
+    text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .hero-image {
+        height: 300px;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
 }
